@@ -25,12 +25,15 @@ class _ClockAppState extends State<ClockApp> {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
-        title: Text('Clock App'),
+        backgroundColor: Colors.white,
+        title: Text('Clock App',style: TextStyle(color: Color(0xff6EA8A4),fontWeight: FontWeight.w600,fontSize: 30),),
         centerTitle: true,
       ),
       body: Container(
         decoration: BoxDecoration(
-            image: DecorationImage(image: AssetImage('asset/img/clock.jpg'),fit: BoxFit.cover)
+
+           color: Colors.white
+           //image: DecorationImage(image: AssetImage('asset/img/clock.jpg'),fit: BoxFit.cover)
         ),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -40,35 +43,38 @@ class _ClockAppState extends State<ClockApp> {
                 height: 310,
                 width: 310,
                 decoration: BoxDecoration(
-                    image: DecorationImage(
-                      image: AssetImage(
-                        "asset/img/bg2.png",
-                      ),
-                      fit: BoxFit.cover,
-                    ),
-                    shape: BoxShape.circle,
-                    boxShadow: [
-                      BoxShadow(
-                          color: Colors.white,
-                          spreadRadius: 5,
-                          blurRadius: 2),
-                    ]),
+                  shape: BoxShape.circle,
+                  border:Border.all(color: Color(0xff6EA8A4),width: 5)
+                ),
+              //       image: DecorationImage(
+              //         image: AssetImage(
+              //           "asset/img/bg2.png",
+              //         ),
+              //         fit: BoxFit.cover,
+              //       ),
+              //       shape: BoxShape.circle,
+              //       boxShadow: [
+              //         BoxShadow(
+              //             color: Colors.white,
+              //             spreadRadius: 5,
+              //             blurRadius: 2),
+              //       ]),
                 child: Stack(
                   children: [
-                    // ...List.generate(
-                    //   60,
-                    //   (index) => Transform.rotate(
-                    //     angle: index * 6 * pi / 180,
-                    //     child: Center(
-                    //       child: VerticalDivider(
-                    //         //color:
-                    //           //  (index % 5 == 0) ? Color(0xffFF8FBF) : Colors.black,
-                    //         // thickness: (index % 5 == 0) ? 5 : 4,
-                    //         // indent: (index % 5 == 0) ? 290 : 301,
-                    //       ),
-                    //     ),
-                    //   ),
-                    // ),
+                    ...List.generate(
+                      60,
+                      (index) => Transform.rotate(
+                        angle: index * 6 * pi / 180,
+                        child: Center(
+                          child: VerticalDivider(
+                            color:
+                               (index % 5 == 0) ? Color(0xff6EA8A4) : Colors.black,
+                            thickness: (index % 5 == 0) ? 5 : 4,
+                            indent: (index % 5 == 0) ? 280 : 289,
+                          ),
+                        ),
+                      ),
+                    ),
                     const Center(
                       child: CircleAvatar(
                         backgroundColor: Colors.black,
@@ -79,7 +85,7 @@ class _ClockAppState extends State<ClockApp> {
                       child: Transform.rotate(
                         angle: dateTime.second * 6 * pi / 180,
                         child: const VerticalDivider(
-                          color: Color(0xffF7B0BB),
+                          color: Color(0xff6EA8A4),
                           thickness: 3,
                           indent: 60,
                           endIndent: 120,
@@ -129,7 +135,7 @@ class _ClockAppState extends State<ClockApp> {
                         '${dateTime.hour % 12} : ${dateTime.minute} : ${dateTime.second}',
                         style: const TextStyle(
                             fontSize: 45,
-                            color: Colors.black,
+                            color: Color(0xff6EA8A4),
                             fontWeight: FontWeight.w600),
                       ),
                     ],
@@ -139,7 +145,7 @@ class _ClockAppState extends State<ClockApp> {
                     child: Text(
                       '${dateTime.hour < 12 ? " Am" : " Pm"}',
                       style: const TextStyle(
-                          color: Colors.black,
+                          color: Color(0xff6EA8A4),
                           fontWeight: FontWeight.bold,
                           fontSize: 35),
                     ),
